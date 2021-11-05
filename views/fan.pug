@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title 
+  p 
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let fan = [
+                    {
+                        "Brand": "Usha",
+                        "price": 10,
+                        "color": "Green"
+                    },
+                    {
+                        "Brand": "sleepwell",
+                        "price": 20,
+                        "color": "Black"
+                    },
+                    {
+                        "Brand": "Pegion",
+                        "price": 30,
+                        "color": "White"
+                    },                   
+                ]
+            each v,index in fan 
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Brand}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
+
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased Item ${intemNo+1}`)
+        }                
