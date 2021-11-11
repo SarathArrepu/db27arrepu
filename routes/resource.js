@@ -8,7 +8,7 @@ var fan_controller = require('../controllers/fan');
 /// API ROUTE /// 
  
 // GET resources base. 
-router.get('/resource', api_controller.api); 
+router.get('/', api_controller.api); 
  
 /// COSTUME ROUTES /// 
  
