@@ -17,9 +17,9 @@ exports.fan_detail = function (req, res) {
 };
 
 // Handle Costume create on POST.
-exports.costume_create_post = async function (req, res) {
+exports.fan_create_post = async function (req, res) {
   console.log(req.body);
-  let document = new Costume();
+  let document = new fan();
   document.Brand = req.body.Brand;
   document.price = req.body.price;
   document.color = req.body.color;
