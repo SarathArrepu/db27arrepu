@@ -1,4 +1,5 @@
-var express = require('express'); 
+var express = require('express');
+const fan_controllers= require('../controllers/fan');  
 var router = express.Router(); 
  
 // Require controller modules. 
@@ -9,24 +10,24 @@ var fan_controller = require('../controllers/fan');
  
 // GET resources base. 
 router.get('/', api_controller.api); 
- 
+router.get('/', fan_controllers.fan_view_all_Page );  
 /// COSTUME ROUTES /// 
  
 // POST request for creating a Costume.  
 router.post('/fan', fan_controller.fan_create_post); 
  
 // DELETE request to delete Costume. 
-router.delete('/fan/:id', fan_controller.fan_delete); 
+router.delete('/fan/:id', fan_controllers.fan_delete); 
  
 // PUT request to update Costume. 
 router.put('/fan/:id', 
-fan_controller.fan_update_put); 
+fan_controllers.fan_update_put); 
  
 // GET request for one Costume. 
-router.get('/fan/:id', fan_controller.fan_detail); 
+router.get('/fan/:id', fan_controllers.fan_detail); 
  
 // GET request for list of all Costume items. 
-router.get('/fan', fan_controller.fan_list); 
+router.get('/fan', fan_controllers.fan_list); 
  
 module.exports = router; 
  

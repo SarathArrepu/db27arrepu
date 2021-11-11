@@ -1,8 +1,11 @@
 extends layout
 
 block content
+  - let create = `dispatch(\"fan/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
   h1= title 
   p 
+  - let items=results
   div(class="container-fluid")
         div(class="row")
             -
@@ -31,5 +34,6 @@ block content
   script.                
         function buy(intemNo)
         {
-              alert(`you purchased Item ${intemNo+1}`)
+             window.location.href=path
+              //alert(`you purchased Item ${intemNo+1}`)
         }                
