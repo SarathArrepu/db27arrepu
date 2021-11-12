@@ -6,4 +6,4 @@ const fanSchema = mongoose.Schema({
 }) 
  
 module.exports = mongoose.model("fan", 
-fanSchema) 
+fanSchema)
