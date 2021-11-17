@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let fanid = toShow._id
+    - let fanBrand = toShow.Brand
+    - let fanprice = toShow.price
+    - let fancolor = toShow.color
+  
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{fanid}
+    - let actionid = "/resource/fan/" + fanid
+    form(id='fanForm', action= actionid, method="PUT")
+      div.form-group
+          label.fanAttr(for='type') fan Brand
+          input#Brand(type='text', name='type', value= Brand )
+      div.form-group
+          label.fanAttr(for='color') fan price
+          input#price(type='number', name='color', value= price )
+      div.form-group
+          label.fanAttr(for='flavor') fan color
+          input#color(type='text', name='flavor', value= color )
+      input(type="submit")
+
+  script.
+    document.forms['fanForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      console.log(event.target)
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Update succeded")
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Update failed " + error )
+      });
+    });

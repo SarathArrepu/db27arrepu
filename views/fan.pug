@@ -2,10 +2,31 @@ extends layout
 
 block content
   //- let create = `dispatch(\"fan/create\")`
-  h1= title 
-  p 
-  - let items=results
-  div(class="container-fluid")
+  - let create = `dispatch(\"fan/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
+  h1= title
+  - let fan=results;
+  div(class="container-fluid mt-3")
+   div(class="row m-1")
+    each element in fan
+     - let destination=`buy(\"/fan/update?id=${element._id}\")`
+     - let detail=`buy(\"/fan/detail?id=${element._id}\")`
+     - let del=`buy(\"/fan/delete?id=${element._id}\")`
+     div(class="col-sm-6 bg-secondary m-1 p-3") fan #{element.Brand} - #{element.price} - #{element.color}
+      button.btn( class="btn-info ml-2", onclick=destination ) Update
+      button.btn( class="btn-dark ml-2", onclick=detail ) Get Detail
+      button.btn( class="btn-warning ml-2", onclick=del ) Delete
+  
+   script.
+    function buy(path){
+        window.location.href=path
+
+        //alert(`You purchased Item ${a+1}`)
+      }
+//-   //h1= title 
+  //p 
+  //- let items=results
+//-   //div(class="container-fluid")
         div(class="row")
             -
                 let fan = [
@@ -30,7 +51,7 @@ block content
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
                 div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
 
-  script.                
+//-   /script.                
         function buy(intemNo)
         {
              window.location.href=path

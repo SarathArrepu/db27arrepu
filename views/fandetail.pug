@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1(id="titlestyle")= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let bakeryid = toShow._id
+    - let bakeryBrand = toShow.Brand
+    - let bakeryprice = toShow.price
+    - let bakerycolor = toShow.color
+
+    div
+      div.row
+        div(class='fanAttr mr-3') bakery ID is:
+        div(class='variety stylesheetnew') #{bakeryid}
+      div.row
+        div(class='fanAttr mr-3') bakery Brand is:
+        div(class="variety") #{bakeryBrand}
+      div.row
+        div(class='fanAttr mr-3') bakery price is:
+        div(class="variety") #{bakeryprice}
+      div.row
+        div(class='fanAttr mr-3') bakery color is:
+        div(class="variety") #{bakeryprice}
+    

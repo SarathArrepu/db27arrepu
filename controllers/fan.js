@@ -1,6 +1,6 @@
 var fan = require("../models/fan");
 
-// List of all Costumes
+// List of all fans
 exports.fan_list = async function (req, res) {
   try {
     thefan = await fan.find();
@@ -11,7 +11,7 @@ exports.fan_list = async function (req, res) {
   }
 };
 
-// for a specific Costume.
+// for a specific fan.
 //exports.fan_detail = function (req, res) {
   //res.send("NOT IMPLEMENTED: fan detail: " + req.params.id);
 //};
@@ -26,7 +26,7 @@ exports.fan_detail = async function(req, res) {
   } 
 }; 
 
-// Handle Costume create on POST.
+// Handle fan create on POST.
 exports.fan_create_post = async function (req, res) {
   console.log(req.body);
   let document = new fan();
@@ -42,7 +42,7 @@ exports.fan_create_post = async function (req, res) {
   }
 };
 
-// Handle Costume delete form on DELETE.
+// Handle fan delete form on DELETE.
 //exports.fan_delete = function (req, res) {
   //res.send("NOT IMPLEMENTED: fan delete DELETE " + req.params.id);
 //};
@@ -58,7 +58,7 @@ exports.fan_delete = async function(req, res) {
   } 
 }; 
 
-// Handle Costume update form on PUT.
+// Handle fan update form on PUT.
 //exports.fan_update_put = function (req, res) {
   //res.send("NOT IMPLEMENTED: fan update PUT" + req.params.id);
 //};
@@ -86,10 +86,28 @@ failed`);
 // Handle a show all view
 exports.fan_view_all_Page = async function (req, res) {
   try {
-    thefan = await Costume.find();
+    thefan = await fan.find();
     res.render("fan", { title: "fan Search Results", results: thefan });
   } catch (err) {
     res.status(500);
     res.send(`{"error": ${err}}`);
   }
 };
+
+/* GET detail fan page */ 
+router.get('/detail', fan_controlers.fan_view_one_Page); 
+
+// Handle a show one view with id specified by query 
+exports.fan_view_one_Page = async function(req, res) { 
+    console.log("single view for id "  + req.query.id) 
+    try{ 
+        result = await fan.findById( req.query.id) 
+        res.render('fandetail',  
+{ title: 'fan Detail', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+ 
