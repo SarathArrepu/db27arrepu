@@ -28,6 +28,9 @@ router.get('/fan/:id', fan_controllers.fan_detail);
  
 // GET request for list of all Costume items. 
 router.get('/fan', fan_controllers.fan_list); 
+
+/* GET create costume page */ 
+router.get('/delete', fan_controllers.fan_delete_Page);
  
 module.exports = router; 
  

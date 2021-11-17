@@ -17,14 +17,14 @@ block content
     - let actionid = "/resource/fan/" + fanid
     form(id='fanForm', action= actionid, method="PUT")
       div.form-group
-          label.fanAttr(for='type') fan Brand
-          input#Brand(type='text', name='type', value= Brand )
+          label.fanAttr(for='Brand') fan Brand
+          input#Brand(type='text', name='Brand', value= fanBrand )
       div.form-group
-          label.fanAttr(for='color') fan price
-          input#price(type='number', name='color', value= price )
+          label.fanAttr(for='price') fan price
+          input#price(type='number', name='price', value= fanprice )
       div.form-group
-          label.fanAttr(for='flavor') fan color
-          input#color(type='text', name='flavor', value= color )
+          label.fanAttr(for='color') fan color
+          input#color(type='text', name='color', value= fancolor )
       input(type="submit")
 
   script.

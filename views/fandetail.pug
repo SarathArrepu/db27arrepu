@@ -6,22 +6,22 @@ block content
   if (toShow == null)
     h2 No instance to delete
   else
-    - let bakeryid = toShow._id
-    - let bakeryBrand = toShow.Brand
-    - let bakeryprice = toShow.price
-    - let bakerycolor = toShow.color
+    - let fanid = toShow._id
+    - let fanBrand = toShow.Brand
+    - let fanprice = toShow.price
+    - let fancolor = toShow.color
 
     div
       div.row
-        div(class='fanAttr mr-3') bakery ID is:
-        div(class='variety stylesheetnew') #{bakeryid}
+        div(class='fanAttr mr-3') fan ID is:
+        div(class='variety stylesheetnew') #{fanid}
       div.row
-        div(class='fanAttr mr-3') bakery Brand is:
-        div(class="variety") #{bakeryBrand}
+        div(class='fanAttr mr-3') fan Brand is:
+        div(class="variety") #{fanBrand}
       div.row
-        div(class='fanAttr mr-3') bakery price is:
-        div(class="variety") #{bakeryprice}
+        div(class='fanAttr mr-3') fan price is:
+        div(class="variety") #{fanprice}
       div.row
-        div(class='fanAttr mr-3') bakery color is:
-        div(class="variety") #{bakeryprice}
+        div(class='fanAttr mr-3') fan color is:
+        div(class="variety") #{fanprice}
     
