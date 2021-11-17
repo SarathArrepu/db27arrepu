@@ -43,9 +43,20 @@ exports.fan_create_post = async function (req, res) {
 };
 
 // Handle Costume delete form on DELETE.
-exports.fan_delete = function (req, res) {
-  res.send("NOT IMPLEMENTED: fan delete DELETE " + req.params.id);
-};
+//exports.fan_delete = function (req, res) {
+  //res.send("NOT IMPLEMENTED: fan delete DELETE " + req.params.id);
+//};
+exports.fan_delete = async function(req, res) { 
+  console.log("delete "  + req.params.id) 
+  try { 
+      result = await fan.findByIdAndDelete( req.params.id) 
+      console.log("Removed " + result) 
+      res.send(result) 
+  } catch (err) { 
+      res.status(500) 
+      res.send(`{"error": Error deleting ${err}}`); 
+  } 
+}; 
 
 // Handle Costume update form on PUT.
 //exports.fan_update_put = function (req, res) {
