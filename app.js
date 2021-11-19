@@ -18,7 +18,7 @@ passport.use(new LocalStrategy(
   return done(null, user);
   });
   }))
-var Account =require('./models/account'); 
+
 
 
 const connectionString = process.env.MONGO_CON;
@@ -109,6 +109,7 @@ app.use("/addmods", addmodsRouter);
 //app.use("/costume", costumeRouter);
 app.use('/resource', resourceRouter);
 
+var Account =require('./models/account'); 
 passport.use(new LocalStrategy(Account.authenticate())); 
 passport.serializeUser(Account.serializeUser()); 
 passport.deserializeUser(Account.deserializeUser()); 
