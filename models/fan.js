@@ -1,6 +1,6 @@
 const mongoose = require("mongoose") 
 const fanSchema = mongoose.Schema({ 
- Brand: String, 
+ Q  : String, 
  price: Number, 
  color: String 
 }) 
