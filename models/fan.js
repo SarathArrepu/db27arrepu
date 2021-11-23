@@ -1,8 +1,14 @@
 const mongoose = require("mongoose") 
 const fanSchema = mongoose.Schema({ 
- Brand: String, 
+ Brand: {
+    type: String,
+    minlength: 4
+},
  price: Number, 
- color: String 
+ color: {
+    type: String,
+    minlength: 4
+}, 
 }) 
  
 module.exports = mongoose.model("fan", 

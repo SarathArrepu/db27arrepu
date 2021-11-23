@@ -135,7 +135,6 @@ exports.fan_update_Page =  async function(req, res) {
   } 
   catch(err){ 
       res.status(500) 
-      res.send(`{'error': '${err}'}`); 
   } 
 }; 
 
