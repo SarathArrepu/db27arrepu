@@ -45,23 +45,23 @@ async function recreateDB() {
   let instance1 = new fan({
     Brand: "Usha",
     price: 10,
-    color: "Green",
+    color: "green",
   });
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("First object saved");
   });
   let instance2 = new fan({
-    Brand: "tas",
+    Brand: "tash",
     price: 20,
-    color: "red",
+    color: "redis",
   });
   instance2.save(function (err, doc) {
     if (err) return console.error(err);
     console.log("second object saved");
   });
   let instance3 = new fan({
-    Brand: "pot",
+    Brand: "pots",
     price: 30,
     color: "white",
   });

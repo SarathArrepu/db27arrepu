@@ -7,7 +7,7 @@ const fanSchema = mongoose.Schema({
  price: Number, 
  color: {
     type: String,
-    minlength: 4
+    minlength: 5
 }, 
 }) 
  

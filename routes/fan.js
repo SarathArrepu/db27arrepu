@@ -24,7 +24,7 @@ router.get('/create',secured, fan_controlers.fan_create_Page);
 /* GET create update page */ 
 router.get('/update',secured, fan_controlers.fan_update_Page);
 
-/* GET create costume page */ 
+/* GET delete costume page */ 
 router.get('/delete',secured, fan_controlers.fan_delete_Page); 
  
 
